@@ -16,6 +16,31 @@ app.use(express.static("public"));
 
 /*Routes */
 app.use(pageRoutes);
+app.get("/", (req, res) => {
+    console.log("Home route visited at:", new Date())});
+
+// temperary
+const  students = [
+    {
+        id: 1,
+        name: "Sijomon P S",
+        course: "MCA"
+    },
+    {
+        id: 2,
+        name: "Joseph Dominic",
+        course: "MCA"
+    },
+    {
+        id: 3,
+        name: "Christopher",
+        course: "MCA"
+    }
+]
+
+app.get("/student", (req, res) => {
+    res.json(students)
+});
 
 
 

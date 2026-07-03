@@ -11,3 +11,9 @@ export const getAbout = (req, res) => {
 export const getContact = (req, res) => {
     res.sendFile(path.join(process.cwd(), "views", "contact.html"))
 };
+
+export const ping = (req, res) => {
+    console.log(`[${new Date().toISOString()}] Ping received`);
+
+    res.status(200).send("OK");
+};
