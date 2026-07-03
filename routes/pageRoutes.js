@@ -1,26 +1,11 @@
 import express from 'express'
-import path from 'path'
+import { getHome, getAbout, getContact } from "../controllers/pageController.js"
 
 const router = express.Router();
 
-/* Home */
-router.get("/", (req, res) =>{
-    res.sendFile(
-        path.join( process.cwd(), "views", "index.html")
-    );
-});
-
-router.get("/about", (req, res) => {
-    res.sendFile(
-        path.join(process.cwd(), "views", "about.html")
-    );
-});
-
-router.get("/contact", (req, res) => {
-    res.sendFile(
-        path.join(process.cwd(), "views", "contact.html")
-    );
-});
+router.get("/", getHome);
+router.get("/about", getAbout);
+router.get("/contact", getContact);
 
 export default router
 

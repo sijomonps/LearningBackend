@@ -3,8 +3,9 @@ import path from 'path';
 import pageRoutes from "./routes/pageRoutes.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
+/*Middleware */
 app.use((req, res, next) => {
     console.log("Middleware Running");
     next();
@@ -13,11 +14,10 @@ app.use((req, res, next) => {
 /* Static FIles */
 app.use(express.static("public"));
 
-app.use("/", pageRoutes);
+/*Routes */
+app.use(pageRoutes);
 
-app.use("/about", pageRoutes);
 
-app.use("/contact", pageRoutes);
 
 
 
