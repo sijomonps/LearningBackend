@@ -5,6 +5,10 @@ import pageRoutes from "./routes/pageRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get("/", (req, res) => {
+    console.log("Home route visited at:", new Date())
+});
+
 /*Middleware */
 app.use((req, res, next) => {
     console.log("Middleware Running");
@@ -16,8 +20,7 @@ app.use(express.static("public"));
 
 /*Routes */
 app.use(pageRoutes);
-app.get("/", (req, res) => {
-    console.log("Home route visited at:", new Date())});
+
 
 // temperary
 const  students = [
