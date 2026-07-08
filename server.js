@@ -4,11 +4,6 @@ import pageRoutes from "./routes/pageRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-    res.status(200).send("Server is running");
-});
-
-
 /*Middleware */
 app.use((req, res, next) => {
     console.log("Middleware Running");
@@ -16,7 +11,8 @@ app.use((req, res, next) => {
 });
 
 /* Static FIles */
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 /*Routes */
 app.use(pageRoutes);
