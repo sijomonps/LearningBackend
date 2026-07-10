@@ -1,4 +1,4 @@
-const  studentData = [
+const studentData = [
     {
         id: 1,
         name: "Sijomon P S",
@@ -17,11 +17,11 @@ const  studentData = [
 ]
 
 export const getAllStudents = () => {
-    return students;
+    return studentData;
 };
 
-export const getStudentById = (id) => {
-    return students.find(student => student.id === id);
+export const fetchStudentById = (id) => {
+    return studentData.find(student => student.id === id);
 };
 
 

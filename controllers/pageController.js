@@ -1,6 +1,6 @@
 import path from 'path'
 import studentData from "../models/studentModel.js"
-import { getAllStudents, getStudentById } from "../models/studentModel.js"
+import { getAllStudents, fetchStudentById } from "../models/studentModel.js"
 
 export const getHome = (req, res) => {
     res.sendFile(path.join(process.cwd(), "views", "index.html"))

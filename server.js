@@ -1,5 +1,10 @@
 import express from 'express';
 import pageRoutes from "./routes/pageRoutes.js";
+import connectDB from "./config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
