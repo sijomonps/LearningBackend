@@ -1,4 +1,6 @@
 import path from 'path'
+import studentData from "../models/studentModel.js"
+import { getAllStudents, getStudentById } from "../models/studentModel.js"
 
 export const getHome = (req, res) => {
     res.sendFile(path.join(process.cwd(), "views", "index.html"))
@@ -64,21 +66,3 @@ export const deleteStudent = (req, res) => {
 };
 
 
-// temperary
-const  studentData = [
-    {
-        id: 1,
-        name: "Sijomon P S",
-        course: "MCA"
-    },
-    {
-        id: 2,
-        name: "Joseph Dominic",
-        course: "MCA"
-    },
-    {
-        id: 3,
-        name: "Christopher",
-        course: "MCA"
-    }
-]
