@@ -1,6 +1,22 @@
 import path from 'path'
 import studentData from "../models/studentModel.js"
 import { getAllStudents, fetchStudentById } from "../models/studentModel.js"
+import Student from "../models/Student.js";
+
+export const createStudent = async (req, res) => {
+    try{
+        const { name, course } = req.body;
+
+        const student = await Student.create({
+            name, course
+        });
+        res.status(200).json(student);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    };
+}
 
 export const getHome = (req, res) => {
     res.sendFile(path.join(process.cwd(), "views", "index.html"))
@@ -33,16 +49,6 @@ export const getStudentById = (req, res) => {
         return res.json(student)
     }
 };
-
-export const createStudent = (req, res) => {
-    const { name, course} = req.body;
-    const newStudent = {id: studentData.length + 1, name, course}
-
-    studentData.push(newStudent);
-
-    res.status(200).json({message: "Student Created Successfully!", student: newStudent})
-};
-
 
 export const deleteStudent = (req, res) => {
     const id = Number(req.params.id);
